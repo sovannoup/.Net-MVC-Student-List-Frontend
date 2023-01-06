@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Delete Student";
+}
+@model Student
+
+<div class="card text-center" style="width: 40rem; margin: auto;">
+    <form class="card-body" method="post">
+        <h5 class="card-title">Delete Student</h5>
+        <p class="card-text">Are you sure you want to delete?</p>
+        <div class="flex-row justify-content-center">
+            <input type="hidden" asp-for="id" value="@ViewBag.id" name="id" />
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <a href="/Student" class="px-3">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication2.Models.Student>
+@{
+    ViewData["Title"] = "Student List List";
+}
+
+<h2>Welcome to Student List</h2>
+
+<p class="text-end">@Html.ActionLink("Create New" , "Create")</p>
+
+<table class="table text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name);
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age);
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td class="d-flex flex-row justify-content-center">
+                <div class="mx-3">
+                    @Html.ActionLink("Edit", "Edit", "Student", new {id = item.id, name = item.name, age = item.age}, null)
+                </div>
+                <div class="mx-3">
+                    @Html.ActionLink("Details", "Details", "Student", new {id = item.id, name = item.name, age = item.age} )
+                </div>
+                <div class="mx-3">
+                    @Html.ActionLink("Delete", "Delete", "Student", new {Model = item} )
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
